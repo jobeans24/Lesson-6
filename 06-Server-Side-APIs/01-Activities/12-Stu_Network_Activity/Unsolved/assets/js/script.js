@@ -1,9 +1,11 @@
-requestUrl = 'https://api.github.com/orgs/nodejs/repos';
+let requestUrl = 'https://api.github.com/orgs/nodejs/repos';
 
 fetch(requestUrl)
   .then(function (response) {
-    return response.json();
+    return response.json(); 
   })
   .then(function (data) {
-    console.log(data);
+    console.log(data); 
   });
+
+
