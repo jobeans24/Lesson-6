@@ -5,6 +5,7 @@ var limitWarningEl = document.querySelector('#limit-warning');
 var getRepoName = function () {
   // Where is this value coming from?
   // TODO: Write your answer here
+  // This value is coming from the URL query string
   var queryString = document.location.search;
   var repoName = queryString.split('=')[1];
 
@@ -15,6 +16,7 @@ var getRepoName = function () {
   } else {
     // Under what condition will this run?
     // TODO: Write your answer here
+    // This will run if there is no repoName
     document.location.replace('./index.html');
   }
 };
@@ -29,6 +31,7 @@ var getRepoIssues = function (repo) {
 
         // What is this checking for? Under what condition will this be `true`?
         // TODO: Write your answer here
+        // This is checking if there are more than 30 issues. This will be true if there are more than 30 issues
         if (response.headers.get('Link')) {
           displayWarning(repo);
         }
@@ -42,6 +45,7 @@ var getRepoIssues = function (repo) {
 var displayIssues = function (issues) {
   // Is there a difference between this and `!issues.length`?
   // TODO: Write your answer here
+  // Yes, there is a difference. This checks if the length is equal to 0, while !issues.length checks if the length is not equal to 0
   if (issues.length === 0) {
     issueContainerEl.textContent = 'This repo has no open issues!';
     return;
@@ -73,6 +77,7 @@ var displayIssues = function (issues) {
 
 // What does this function do?
 // TODO: Write your answer here
+// This function displays a warning if there are more than 30 issues
 var displayWarning = function (repo) {
   limitWarningEl.textContent = 'To see more than 30 issues, visit ';
 
@@ -83,6 +88,7 @@ var displayWarning = function (repo) {
 
   // Where does this appear on the page?
   // TODO: Write your answer here
+  // This appears in the limitWarningEl element
   limitWarningEl.appendChild(linkEl);
 };
 
